@@ -1,4 +1,4 @@
-# Quant
+# Qualifications
 
 ## Computer science and mathematics education
 ### Aug '16 - May '19

@@ -1,18 +1,97 @@
 # Software engineering
-## GResearch: Jul '21 - NOW
+## Data Engineer at GResearch: Jul '21 - Feb '2024
 At [GResearch](https://www.gresearch.co.uk/), I've gotten to work with some talented engineers and analysts on the reference data team
 to onboard new data sources and ensure quality of daily and historic data.
 
+### Datascope Plus migration and implementation Q2-Q1 2024
+#### Highlights
+I played a central role in the strategic migration of Datascope to Datascope Plus, a critical overhaul of one of our main pricing and reference sources for trading and research.
+This project was essential as it involved transitioning to a new technology stack ahead of the decommissioning of a vendor product. The goal of 2023 was to validate the new solution's
+architecture by successfully productionizing the US Americas Equities subset, setting a precedent for the remaining markets.
 
-### Historic reference data renormalization: Q2-Q4 2022 & ongoing
+#### Challenges / reflection
+The migration faced significant challenges, including unclear asset classifications, intricate data mappings, and the scale of data. Additionally, there was an initial team bias against
+the adoption of the new framework that we were being pushed to use by management, issues with permission mapping, and complexity of legacy logic. My strategy involved meticulus management of
+the project over 14 two-week sprints, ensuring transparency through regular updates and the documentation of key decisions
+
+My contributions were multifaceted and impactful
+* Developed a script to estimate data size of the new data source, enabling informed decisions on data storage and processing needs (O(terrabytes))
+* Designed and socialized the data lake architecture, ensuring a robust and scalable foundation for the new system.
+* Authored a comprefensive reference document and conducted a premortem workshop, equipping the team with the necessary understanding and confidence to support the system
+* Iterated on system design, incorporating feedback and refining our approach to meet the project's evolving requirements
+* Implemented a complex script for field-level migration mapping, ensuring a seamless transition from datascope to datascope plus
+* Designed and implemented the compacting and normalisation stage for equities reference and pricing, demonstrating my comitment to thorough and efficient data processing
+
+The successful launch for americas equities in Q4 was a testament to the project's meticulous planning and execution. It provided valuable insights into the new solution's performance in a production environment,
+building confidence in its reliability and scalability. My design approach significantly reduced the learning curve for new members, which enabled the rest of the team to migrate all other asset classes and regions in Q1.
+
+This migration was a critical step in modernizing our pricing and reference source infrastructure, contributing to the organization's long-term strategic goals. By establishing a clear roadmap and involving the
+entire team in decision making, I helped foster a sense of ownership and confidence in supporting the new technology. This project not only addresed immediate technical needs, but also positioned us for
+future growth and adaptability in a rapidly evolving market landscape.
+
+In retrospect, I could have engaged more practively with the team to address the initial resistance to the new framework, and facitilated a smoother adpotion process by hilighting its long-term benefits earlier in the project.
+
+### Decommisioned 15 year old legacy service, migrated to new service Q1-Q4 2023
+#### Highlights
+In a pivotal project for Trading and Research, I spearheaded the decommisioning of the legacy trading venue library (TVL - confusingly, also a service) and its migration to a new
+calendars service - a strategic move to a more advanced and sustainable technology stack. This transition was not just a technical upgrade; it was a
+transformational change that enabled access to more granular information, point-in-time data access, and a more flexible model that streamiled trading certain sessions.
+By centralising the rules for trading hours before we have reliable historic data, we eliminated the need for multiple teams to maintain hard-coded rules, therby
+reducing the complexity of the existing solution and enhancing the overall ysstem supportability.
+
+The migration's importance was underscored by the fact that TVL was nearing an unsupportable state, with incidents that could extend for days. The calendars service,
+already in use by trading and execution, was at risk of increased support load, making the migration's success critical.
+
+The migration's significance lies in its contribution to the organization's operational efficiency and future readiness. By successfully transitioning to the new service,
+we have laid a foundation fo more robust and scalable data management, which is crucial for the evolving needs of trading and research. This project not only addressed
+immediate technical challanges, but also aligned with G-Research's strategic goals, demonstrating the value of foresight, planning, and teamwork in achieving high-stakes objectives
+
+#### Challenges / reflection
+The migration presented challenges, such as user base uncertainties and migration prioritization. I ensured a smooth transition by developing a detalied migration timeline, 
+collaborating with stakeholders by sending decom emails and meeting directly with affected teams, conducting load testing, and implementing rate limiting.
+
+Looking back, I could have engaged users sooner and been more involved in data normalization discussions to improve the process
+
+### Alerting and monitoring enhancements Q2 2023
+#### Highlights
+I set out to enhance our alerting systems with the goal of ensuring that by the end of Q2 2023, at least 80% of alerts in our channel would be actionable and require on-call
+intervension. This was in response to a significant number of non-actionable, "noisy" alerts that were cluttering the channel and impeding our team's efficiency.
+
+I introduced a separate spam channel for badly behaved alerts, and updated alerts acorss systems. These actions have made the alert channel more useful and reliable for on-call support.
+
+#### Challenges / reflection
+To to better here, I could have led a more collaborative team effort, and shared the stategies I used with other teams to have a broader impact.
+
+### Data insight initiative Q2 2023
+#### Highlights
+In Q2, I focused on the data insight initiative, aiming to enhance our data management and validation processes. The initiative's primary goal was to identify critical fields for validation
+and usage, enabling us to better understand and manage the data that underpins our trading platform.
+
+Significant outcomes included identifying a large number of fields for potential validation, which could extend the benefits of the data insight initiative beyond reference data.
+
+#### Challenges / reflection
+A faster pace, dedicated focus, and more brainstorming could have enhanced the initiative's progress.
+
+### Team support and knowledge sharing 2023
+#### Highlights
+I championed team support and knowledge sharing, leading initiatives that significanty enhanced our team's capabilities.
+* I organized and maintained our ownership matrix, to ensure clarity of
+ownership and support responsabilities.
+* My efforts in designing and sotionalzing the data lake architecture for datascope plus provided a robust and scalable foundation for our new systems.
+* I authored comprehansive reference documents and conducted premortem workshops on both datascope plus and calendars service, crucial in equipping the team with the knowledge and confidence 
+to support these initiatives
+
+#### Challenges / reflection
+Reflecting on my role in team support, I see the need for a more systematic approach to process improvement. I could have communicated goals and progress more effectively and been more proactive
+in aligning my technical decisions with business goals. I plan to improve my mentorship and communication skills to support team growth and success
+
+### Historic reference data renormalization: Q2-Q4 2022
 * The reference data team, apart from pricing, maintains about 10^8 datapoints (10^5-10^6 underliers, 10^2-10^3 lifetime, 10^1 attributes)
 * We get and store raw data, and then normalize that data into a mssql server (ownership of db is shared between data teams and the dedicated dba team)
 * Sometimes, due to data issues / changes, or improvements/changes in data processing, the normalized data can become inconsistent or incomplete with respect to the raw data
-* This project aims to fix                            this inconsistency
+* This project aims to fix this inconsistency
 
 #### What
-* Note - as of now (2022 Q4), the tooling is complete, but productionization has just started
-    - We have pushed only 2 feeds so far, in a manual process to ensure correctness.
 * I built a kotlin service to trigger renormalizations of raw data to normalised data on a feed-by-feed basis (feed here is ~an exchange) in csv files
 * I did work to run an existing Kubernetes service, which usually runs one pod, at scale using armada (https://github.com/G-Research/armada), to run hundreds of jobs at once.
 * I built the python etl tool I created (see Cross-team data flow) to watch and injest these files into our database.
@@ -33,7 +112,6 @@ run in a renorm-mode, and 1 in Q4 who is owning a lot of the work on using the t
 
 
 ### Cross-team data flow: Q3-Q4 2022
-Please ask for more information - I can talk more about the work, but can't be too specific on the specific project.
 
 #### What
 * Created the first ever reference data system to automatically flow quant outputs back into the reference data team
